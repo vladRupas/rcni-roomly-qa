@@ -1,0 +1,9 @@
+services:
+  tests:
+    build: .
+    init: true
+    shm_size: "1gb"
+    environment:
+      BASE_URL: ${BASE_URL:-https://rcsi-science.github.io/demo-roomly/}
+    volumes:
+      - ./artifacts:/work/artifacts

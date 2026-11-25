@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Одностраничная форма бронирования переговорной комнаты" />
+    <title>Переговорные — бронирование комнаты</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-panel" aria-labelledby="page-title">
+        <div class="brand-mark" aria-label="Переговорные">
+          <span class="brand-dot"></span>
+          <span>roomly</span>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">Внутренние встречи</p>
+          <h1 id="page-title">Забронируйте место для важного разговора.</h1>
+          <p class="hero-text">Выберите комнату, удобное время и пригласите команду. Всё на одной странице.</p>
+        </div>
+        <div class="room-summary" aria-label="Доступные комнаты">
+          <div class="summary-heading">
+            <span>Сегодня в офисе</span>
+            <span class="status-dot"><i></i> свободно</span>
+          </div>
+          <div class="room-list">
+            <div><span class="room-icon room-icon-small"></span><span>Малая</span><strong>4 чел.</strong></div>
+            <div><span class="room-icon room-icon-medium"></span><span>Средняя</span><strong>10 чел.</strong></div>
+            <div><span class="room-icon room-icon-large"></span><span>Большая</span><strong>20 чел.</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-panel" aria-labelledby="form-title">
+        <div class="form-heading">
+          <div>
+            <p class="eyebrow eyebrow-dark">Новая бронь</p>
+            <h2 id="form-title">Детали встречи</h2>
+          </div>
+          <span class="step-label">01 <span>/ 01</span></span>
+        </div>
+
+        <form id="booking-form" novalidate>
+          <div class="field-grid field-grid-two">
+            <label class="field">
+              <span class="field-label">Переговорная <b>*</b></span>
+              <select id="room" name="room" required>
+                <option value="">Выберите комнату</option>
+                <option value="small" data-capacity="4">Малая · до 4 человек</option>
+                <option value="medium" data-capacity="10">Средняя · до 10 человек</option>
+                <option value="large" data-capacity="20">Большая · до 20 человек</option>
+              </select>
+              <span class="field-error" data-error-for="room"></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Дата <b>*</b></span>
+              <input id="date" name="date" type="date" required />
+              <span class="field-error" data-error-for="date"></span>
+            </label>
+          </div>
+
+          <div class="field-grid field-grid-three">
+            <label class="field">
+              <span class="field-label">Начало <b>*</b></span>
+              <input id="start-time" name="startTime" type="time" required />
+              <span class="field-error" data-error-for="startTime"></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Окончание <b>*</b></span>
+              <input id="end-time" name="endTime" type="time" required />
+              <span class="field-error" data-error-for="endTime"></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Участники <b>*</b></span>
+              <input id="participants" name="participants" type="number" min="1" max="20" placeholder="Например, 6" required />
+              <span class="field-error" data-error-for="participants"></span>
+            </label>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="field-grid field-grid-two">
+            <label class="field">
+              <span class="field-label">Ваше имя <b>*</b></span>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться?" required />
+              <span class="field-error" data-error-for="name"></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Рабочая почта <b>*</b></span>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="name@company.ru" required />
+              <span class="field-error" data-error-for="email"></span>
+            </label>
+          </div>
+
+          <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+
+          <div class="form-footer">
+            <p class="required-note"><b>*</b> Обязательные поля</p>
+            <button class="submit-button" type="submit">Забронировать <span aria-hidden="true">↗</span></button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
